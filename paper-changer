@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Change me to reflect path to your wallpapers folder
+DIR=$HOME/Pictures/papers
+
+while true
+do
+    img=`shuf -n 1 -e $DIR/*`
+    gsettings set org.gnome.desktop.background picture-uri "file://$img"
+    sleep 300 # Every 5 mins
+done
+

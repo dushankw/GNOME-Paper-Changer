@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Install the required files
+function paper-setup() {
+    cp paper-changer.desktop $HOME/.config/autostart/
+    sudo cp paper-changer /usr/sbin/
+    sudo chmod 755 /usr/sbin/paper-changer
+    echo "Installed, please log out and log in again"
+}
+
+# Make sure GNOME is running and check the version
+if [ `ps -u $USER | grep -v grep | grep gnome-session | wc -l` -ge 1 ] ; then
+    if [[ `gnome-shell --version | awk '{print $3}'` =~ ^[3][\.\d]+ ]] ; then
+        paper-setup 
+    else
+        echo "You are not running a compatible version of GNOME"
+    fi
+else
+    echo "GNOME does not appear to be running"
+fi

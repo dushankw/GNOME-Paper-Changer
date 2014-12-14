@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=paper-changer
+Exec=/usr/sbin/paper-changer
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
