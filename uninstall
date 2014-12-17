@@ -1,0 +1,10 @@
+#!/bin/bash 
+
+if [ $UID -ne 0 ] ; then
+    echo 'Run me as root'
+else
+    pkill paper-changer
+    [ -e "$HOME/.config/autostart/paper-changer.desktop" ] && rm $HOME/.config/autostart/paper-changer.desktop 
+    [ -e "/usr/sbin/paper-changer" ] && rm /usr/sbin/paper-changer 
+    echo "The program has been removed"
+fi
